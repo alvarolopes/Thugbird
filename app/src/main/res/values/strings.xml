@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Thugbird</string>
+    <string name="title_activity_main">Thug Bird</string>
 </resources>
