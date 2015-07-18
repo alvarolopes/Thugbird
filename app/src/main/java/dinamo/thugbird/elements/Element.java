@@ -50,8 +50,8 @@ public abstract class Element {
 
 
     public boolean getClick(float y, float x) {
-        return (y > this.getTop(0) && y < (this.getBottom(0))) &&
-                (x > this.getLeft(0) && x < (this.getRight(0)));
+        return (y > this.getTop(-2) && y < (this.getBottom(-2))) &&
+                (x > this.getLeft(-2) && x < (this.getRight(-2)));
 
     }
 

@@ -16,8 +16,9 @@ public class Pause extends Element {
     private final String pause = "||";
     private final String paused = "PAUSED";
     private static final Paint WHITE = Colors.getPauseColor();
+    private static final Paint WHITE1 = Colors.getPausedColor();
     private final Rect TEXT_RECT_PAUSE = Colors.getTextRect(pause, WHITE);
-    private final Rect TEXT_RECT_PAUSED = Colors.getTextRect(paused,WHITE);
+    private final Rect TEXT_RECT_PAUSED = Colors.getTextRect(paused,WHITE1);
     private final Screen screen;
 
     public Pause(Screen screen){
@@ -30,6 +31,6 @@ public class Pause extends Element {
     }
 
     public void drawPausedAt(Canvas canvas) {
-        canvas.drawText(String.valueOf(paused), screen.getWidth() / 2 - (TEXT_RECT_PAUSED.right - TEXT_RECT_PAUSED.left) / 2, screen.getHeight()/2, WHITE);
+        canvas.drawText(String.valueOf(paused), screen.getWidth() / 2 - (TEXT_RECT_PAUSED.right - TEXT_RECT_PAUSED.left) / 2, screen.getHeight()/2, WHITE1);
     }
 }

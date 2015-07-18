@@ -16,6 +16,16 @@ public class Colors {
         return white;
     }
 
+    public static Paint getHighScoreColor() {
+        Paint white = new Paint();
+        white.setTextSize(50);
+        white.setColor(0xFFFFFFFF);
+        white.setTypeface(Typeface.DEFAULT_BOLD);
+        white.setShadowLayer(3, 5, 5, 0xFF000000);
+
+        return white;
+    }
+
     public static Paint getGameOverColor() {
         Paint red = new Paint();
         red.setColor(0xFFFF0000);
@@ -38,6 +48,16 @@ public class Colors {
     public static Paint getPauseColor() {
         Paint white = new Paint();
         white.setTextSize(80);
+        white.setColor(0xFFFFFFFF);
+        white.setTypeface(Typeface.DEFAULT_BOLD);
+        white.setShadowLayer(1, 5, 0, 0xFFFFFFFF);
+
+        return white;
+    }
+
+    public static Paint getPausedColor() {
+        Paint white = new Paint();
+        white.setTextSize(150);
         white.setColor(0xFFFFFFFF);
         white.setTypeface(Typeface.DEFAULT_BOLD);
         white.setShadowLayer(3, 5, 5, 0xFF000000);

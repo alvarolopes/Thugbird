@@ -15,7 +15,10 @@ public class TryAgain extends Element{
     private static final Rect TEXT_RECT = Colors.getTextRect(tryAgain,BLUE);
 
     public TryAgain(Screen screen) {
-        super((screen.getHeight() / 2) + GAME_OVER_HEIGHT,((screen.getWidth()/2) - (TEXT_RECT.right - TEXT_RECT.left)/2),TEXT_RECT.width(), TEXT_RECT.height());
+        super((screen.getHeight() / 2) + GAME_OVER_HEIGHT,
+                ((screen.getWidth()/2) - (TEXT_RECT.right - TEXT_RECT.left)/2),
+                TEXT_RECT.width(),
+                TEXT_RECT.height());
     }
 
     public void drawAt(Canvas canvas) {

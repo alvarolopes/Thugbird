@@ -1,6 +1,7 @@
 package dinamo.thugbird.engine;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -20,6 +21,7 @@ import dinamo.thugbird.grafics.Screen;
 
 public class Game extends SurfaceView implements Runnable, View.OnTouchListener {
 
+    private static final String PREFS_NAME = "ThugBirdScore";
     private boolean isStarting = false;
     private boolean isRunning = false;
     public boolean isPaused = false;
@@ -33,13 +35,13 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
     private Score score;
     private final Context context;
     private final Sound sound;
-    private final SplashScreen splashScreen;
+    private SplashScreen splashScreen;
     private GameOver gameOver;
 
     private Toast toast;
     private Pause pause;
     private Canvas canvas;
-
+    private SharedPreferences settings;
 
     public Game(Context context) {
         super(context);
@@ -49,7 +51,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
         screen = new Screen(context);
         sound = new Sound(context);
 
-        this.splashScreen = new SplashScreen(0,0,screen.getWidth(),screen.getHeight(),context);
+        settings = context.getSharedPreferences(PREFS_NAME, 0);
 
         initializeElements();
     }
@@ -138,13 +140,13 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
         isStopped = false;
     }
 
-
     private void stop(){
         isStarting = false;
         isRunning = false;
         isPaused = false;
         isStopped = true;
 
+        this.score.endGame();
         sound.playBump();
         this.gameOver.drawAt(canvas);
     }
@@ -155,8 +157,9 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
     }
 
     private void initializeElements() {
+        this.splashScreen = new SplashScreen(0,0,screen.getWidth(),screen.getHeight(),context);
         this.pause = new Pause(screen);
-        this.score = new Score(sound);
+        this.score = new Score(sound, settings,screen);
         this.bird = new Bird(context, sound);
         this.elements = new Elements(screen, context);
         this.gameOver = new GameOver(screen);
@@ -182,8 +185,4 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
 
         return false;
     }
-
-
-
-
 }
