@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
         this.game = new Game(this);
         container.addView(this.game);
 
-        this.game.start();
+        this.game.play();
         thread = new Thread(this.game);
         thread.start();
     }

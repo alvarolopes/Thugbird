@@ -6,12 +6,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
 import dinamo.thugbird.R;
+import dinamo.thugbird.grafics.Screen;
 
 public class SplashScreen extends Element{
     private final Bitmap splashScreen;
 
-    public SplashScreen(int top, int left, int width, int height, Context context){
-        super(top,left,width,height);
+    public SplashScreen(int top, int left, int width, int height, Context context, Screen screen){
+        super(top,left,width,height,screen);
 
         Bitmap backSplash = BitmapFactory.decodeResource(context.getResources(), R.drawable.thugbird);
         this.splashScreen = Bitmap.createScaledBitmap(backSplash, width, height, false);

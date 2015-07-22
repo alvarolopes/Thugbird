@@ -1,36 +1,37 @@
 package dinamo.thugbird.elements;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
+import android.content.Context;
+import android.view.View;
+import android.widget.Button;
 
-import dinamo.thugbird.grafics.Colors;
-import dinamo.thugbird.grafics.Screen;
+import dinamo.thugbird.MainActivity;
+import dinamo.thugbird.R;
+import dinamo.thugbird.engine.Game;
 
-public class Pause extends Element {
+public class Pause {
 
-    private static final int WIDTH = 150;
-    private static final int HEIGHT = 150;
-    private static final int X = -150;
-    private static final int Y = 0;
-    private final String pause = "||";
-    private final String paused = "PAUSED";
-    private static final Paint WHITE = Colors.getPauseColor();
-    private static final Paint WHITE1 = Colors.getPausedColor();
-    private final Rect TEXT_RECT_PAUSE = Colors.getTextRect(pause, WHITE);
-    private final Rect TEXT_RECT_PAUSED = Colors.getTextRect(paused,WHITE1);
-    private final Screen screen;
+    public Pause(final Context context, final Game game){
 
-    public Pause(Screen screen){
-        super(Y, screen.getWidth() + X, WIDTH, HEIGHT);
-        this.screen = screen;
+        final Button btnPause = (Button) ((MainActivity)context).findViewById(R.id.btnPause);
+        btnPause.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                ((MainActivity) context).runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (game.isPaused){
+                            ((MainActivity)context).findViewById(R.id.txtPaused).setVisibility(View.INVISIBLE);
+                            game.play();
+                        }
+                        else{
+                            ((MainActivity)context).findViewById(R.id.txtPaused).setVisibility(View.VISIBLE);
+                            game.pause();
+                        }
+                    }
+                });
+            }
+        });
+
     }
 
-    public void drawAt(Canvas canvas){
-        canvas.drawText(String.valueOf(pause), screen.getWidth() + X+((TEXT_RECT_PAUSE.right - TEXT_RECT_PAUSE.left)/2), 100, WHITE);
-    }
-
-    public void drawPausedAt(Canvas canvas) {
-        canvas.drawText(String.valueOf(paused), screen.getWidth() / 2 - (TEXT_RECT_PAUSED.right - TEXT_RECT_PAUSED.left) / 2, screen.getHeight()/2, WHITE1);
-    }
 }

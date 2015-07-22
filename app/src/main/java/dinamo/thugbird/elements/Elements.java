@@ -2,7 +2,6 @@ package dinamo.thugbird.elements;
 
 import android.content.Context;
 import android.graphics.Canvas;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -25,13 +24,15 @@ public class Elements {
     public Elements(Screen screen, Context context) {
         this.screen = screen;
         this.context = context;
-        int initialPosition = 500;
+        int initialPosition = screen.getWidth();
         rand = new Random();
 
         for(int i=0; i < QUANTITY_OF_ELEMENTS; i++) {
             initialPosition += DISTANCE_BETWEEN_PIPES;
-            cops.add(new Police(getRandomPoliceTop(), initialPosition, context));
-            prizes.add(new Money(getRandomMoneyTop(), initialPosition, context));
+
+
+            cops.add(new Police(getRandomPoliceTop(), initialPosition, context, screen));
+            prizes.add(new Money(getRandomMoneyTop(), initialPosition, context, screen));
         }
 
         Background bg1 = new Background(0,screen,context);
@@ -70,7 +71,7 @@ public class Elements {
             money.move();
             if(money.isGet() || money.isOutOfScreen()) {
                 iterator2.remove();
-                Money newPrize = new Money(getRandomMoneyTop(), getLatestElementRight(), context);
+                Money newPrize = new Money(getRandomMoneyTop(), getLatestElementRight(), context, screen);
                 iterator2.add(newPrize);
             }
         }
@@ -81,7 +82,7 @@ public class Elements {
             police.move();
             if(police.isOutOfScreen()) {
                 iterator.remove();
-                Police newPolice = new Police(getRandomPoliceTop(), getLatestElementRight(), context);
+                Police newPolice = new Police(getRandomPoliceTop(), getLatestElementRight(), context, screen);
                 iterator.add(newPolice);
             }
         }
@@ -113,12 +114,19 @@ public class Elements {
     }
 
     private int getRandomPoliceTop() {
-        int random = randInt((screen.getHeight()*11/100), screen.getHeight()-(screen.getHeight()*11/100)-Police.HEIGHT);
+
+        int policeHeight = 0;
+        int random = screen.getHeight()/2;
+
+        if (!cops.isEmpty()){
+            policeHeight = cops.get(0).getheight();
+            random = randInt((screen.getHeight()*11/100) +policeHeight, screen.getHeight()-(screen.getHeight()*11/100)-policeHeight);
+        }
 
         for (Police cop : cops) {
-            if (cop.hasHorizontalCollision(random, random + Police.HEIGHT))
+            if (cop.hasHorizontalCollision(random, random + cops.get(0).getheight()))
                 random = getRandomPoliceTop();
-       }
+        }
 
         return random;
     }

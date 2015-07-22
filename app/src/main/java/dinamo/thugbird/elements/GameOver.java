@@ -1,27 +1,34 @@
 package dinamo.thugbird.elements;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
+import android.content.Context;
+import android.view.View;
+import android.widget.Button;
 
-import dinamo.thugbird.grafics.Colors;
-import dinamo.thugbird.grafics.Screen;
+import dinamo.thugbird.MainActivity;
+import dinamo.thugbird.R;
 
-public class GameOver extends Element{
+public class GameOver{
 
-    private static final String gameOver = "BUSTED";
-    private static final Paint RED = Colors.getGameOverColor();
-    private static final Rect TEXT_RECT = Colors.getTextRect(gameOver,RED);
-    public final TryAgain tryAgain;
+    private final Context context;
 
-    public GameOver(Screen screen) {
-        super(screen.getHeight()/2,screen.getWidth()/2 - (TEXT_RECT.right - TEXT_RECT.left)/2,TEXT_RECT.width(),TEXT_RECT.height());
+    public GameOver(final Context context) {
+        this.context = context;
 
-        tryAgain = new TryAgain(screen);
-    }
+        ((MainActivity) context).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                ((MainActivity)context).findViewById(R.id.btnPause).setEnabled(false);
+                ((MainActivity)context).findViewById(R.id.gameOver).setVisibility(View.VISIBLE);
 
-    public void drawAt(Canvas canvas) {
-        canvas.drawText(gameOver, left, top, RED);
-        tryAgain.drawAt(canvas);
+                final Button btnTryAgain = (Button) ((MainActivity)context).findViewById(R.id.btnTryAgain);
+                btnTryAgain.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        ((MainActivity)context).findViewById(R.id.btnPause).setEnabled(true);
+                        ((MainActivity)context).findViewById(R.id.gameOver).setVisibility(View.INVISIBLE);
+                        ((MainActivity)context).RestartGame();
+                    }
+                });
+            }
+        });
     }
 }

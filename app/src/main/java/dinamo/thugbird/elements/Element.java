@@ -1,5 +1,7 @@
 package dinamo.thugbird.elements;
 
+import dinamo.thugbird.grafics.Screen;
+
 public abstract class Element {
 
     int top;
@@ -7,11 +9,11 @@ public abstract class Element {
     private final int width;
     private final int height;
 
-    Element(int top, int left, int width, int height)
+    Element(int top, int left, int width, int height,Screen screen)
     {
         this.top = top;
-        this.width = width;
-        this.height = height;
+        this.width = responsiblePixels(width,screen);
+        this.height = responsiblePixels(height,screen);
         this.left = left;
     }
 
@@ -23,6 +25,8 @@ public abstract class Element {
 
     public int getRight(int tolerance) { return ((left+width)-((width*tolerance)/100)); }
 
+    public int getWidth(){return width;};
+    public int getheight(){return height;};
 
     public boolean hasCollision(Element obj2, int tolerance){
         return (hasHorizontalCollision(obj2, tolerance) && hasVerticalCollision(obj2, tolerance));
@@ -54,6 +58,18 @@ public abstract class Element {
                 (x > this.getLeft(-2) && x < (this.getRight(-2)));
 
     }
+
+    public static int responsiblePixels(int oldPixels, Screen screen ){
+        int currentResolution = screen.getHeight();
+        int baseResolution = screen.BASE_RESOUTION;
+
+        float percentualBaseResolution = ((oldPixels*100)/baseResolution);
+
+        int newPixels = (int)((currentResolution*percentualBaseResolution)/100);
+
+        return newPixels;
+    }
+
 
 
 }

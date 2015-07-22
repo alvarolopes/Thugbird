@@ -1,39 +1,44 @@
 package dinamo.thugbird.elements;
 
+import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Canvas;
-import android.graphics.Paint;
+import android.widget.TextView;
 
+import dinamo.thugbird.MainActivity;
+import dinamo.thugbird.R;
 import dinamo.thugbird.engine.Sound;
-import dinamo.thugbird.grafics.Colors;
-import dinamo.thugbird.grafics.Screen;
 
-public class Score {
+public class Score{
 
-    private static final Paint WHITE = Colors.getScoreColor();
-    private static final Paint WHITE1 = Colors.getHighScoreColor();
+    private final TextView txtScore;
     private int score = 0;
     private final Sound sound;
     private SharedPreferences settings;
-    private Screen screen;
     private int maxScore;
+    private Context context;
 
 
-    public Score(Sound sound, SharedPreferences settings, Screen screen){
+    public Score(Sound sound, SharedPreferences settings, Context context){
+        this.context = context;
+        txtScore = (TextView) ((MainActivity) context).findViewById(R.id.txtScore);
+        TextView txtHighScore = (TextView) ((MainActivity) context).findViewById(R.id.txtHighScore);
+
         this.sound = sound;
         this.settings = settings;
-        this.screen = screen;
         this.maxScore =  settings.getInt("maxScore",0);
-    }
-
-    public void drawAt(Canvas canvas) {
-        canvas.drawText("$"+String.valueOf(score), 100, 100, WHITE);
-        canvas.drawText("High score: $"+String.valueOf(maxScore), 100, screen.getHeight()-50, WHITE1);
+        txtHighScore.setText(context.getString(R.string.highScore) +String.valueOf(this.maxScore));
+        txtScore.setText(context.getString(R.string.score)+String.valueOf(this.score));
     }
 
     public void add() {
         sound.playScore();
         score++;
+        ((MainActivity) context).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                txtScore.setText(context.getString(R.string.score) + String.valueOf(score));
+            }
+        });
     }
 
     public void endGame(){

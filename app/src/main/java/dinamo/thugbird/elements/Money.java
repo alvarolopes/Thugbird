@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
 import dinamo.thugbird.R;
+import dinamo.thugbird.grafics.Screen;
 
 class Money extends Element{
 
@@ -15,8 +16,8 @@ class Money extends Element{
 
     private boolean get = false;
 
-    public Money(int top, int left, Context context){
-        super(top, left, WIDTH, HEIGHT);
+    public Money(int top, int left, Context context, Screen screen){
+        super(top, left, WIDTH, HEIGHT, screen) ;
 
         Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.money);
         this.skin = Bitmap.createScaledBitmap(bp, WIDTH, HEIGHT, false);

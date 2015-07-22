@@ -8,8 +8,12 @@ import android.view.WindowManager;
 public class Screen {
 
     private final DisplayMetrics metrics;
+    public static final int BASE_RESOUTION = 1776;
+    private Context context;
 
     public Screen(Context context){
+        this.context = context;
+
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
         metrics = new DisplayMetrics();
@@ -17,10 +21,10 @@ public class Screen {
     }
 
     public int getHeight(){
-        return metrics.heightPixels;
+        return context.getResources().getDisplayMetrics().heightPixels;
     }
 
     public int getWidth() {
-        return metrics.widthPixels;
+        return context.getResources().getDisplayMetrics().widthPixels;
     }
 }
