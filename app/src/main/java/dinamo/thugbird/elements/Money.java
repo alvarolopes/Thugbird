@@ -17,10 +17,10 @@ class Money extends Element{
     private boolean get = false;
 
     public Money(int top, int left, Context context, Screen screen){
-        super(top, left, WIDTH, HEIGHT, screen) ;
+        super(top, left, WIDTH,HEIGHT, screen) ;
 
         Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.money);
-        this.skin = Bitmap.createScaledBitmap(bp, WIDTH, HEIGHT, false);
+        this.skin = Bitmap.createScaledBitmap(bp, getWidth(), getheight(), false);
     }
 
     public void drawAt(Canvas canvas) {

@@ -23,10 +23,10 @@ public class Bird extends Element{
 
     private final Sound sound;
     private Screen screen;
-    private float verticalSpeed = 0;
+    private float verticalSpeed = 0.5f;
 
     public Bird(Context context, Sound sound, Screen screen){
-        super(Y, X, WIDTH, HEIGHT, screen);
+        super( Element.responsiblePixels(Y,screen),  Element.responsiblePixels(X,screen), WIDTH, HEIGHT, screen);
         this.sound = sound;
         this.screen = screen;
 
@@ -36,17 +36,22 @@ public class Bird extends Element{
     }
 
     public void jump(float pressure) {
-        verticalSpeed = ((pressure*26*(Screen.BASE_RESOUTION/screen.getHeight()))*-1);
+
+        verticalSpeed = ((screen.getHeight()*(0.8f+pressure))/100)*-1;
+
 
         sound.playJump();
     }
 
     public void move(Canvas canvas)
     {
-        float deltaTime = 0.5f;
-        float fallingConstant = 1.5f;
+        float deltaTime = 0.55f;//((screen.getHeight()*(0.03f))/100);
+        float fallingConstant = ((screen.getHeight()*(0.088f))/100);
 
-        top += (verticalSpeed * deltaTime) / (Screen.BASE_RESOUTION/screen.getHeight());
+        top += (verticalSpeed * deltaTime);
+
+
+
 
         matrix.reset();
         matrix.setRotate(verticalSpeed, skin.getWidth() / 2, skin.getHeight()/2);

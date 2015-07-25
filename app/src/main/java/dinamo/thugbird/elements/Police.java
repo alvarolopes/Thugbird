@@ -15,10 +15,12 @@ public class Police extends Element{
     private static int HEIGHT = 120;
     private static int WIDTH = 240;
     private final Bitmap skin;
-    private final int speed;
+    private final float speed;
+    private Screen screen;
 
     public Police(int top, int left, Context context, Screen screen){
         super(top, left, WIDTH, HEIGHT, screen);
+        this.screen = screen;
         this.speed =  randomSpeed();
 
         Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.police);
@@ -29,11 +31,13 @@ public class Police extends Element{
         canvas.drawBitmap(skin, left, top, null);
     }
 
-    private int randomSpeed(){
-        Random r = new Random();
-        int Low = 3;
-        int High = 7;
-        return r.nextInt(High-Low) + Low;
+    private float randomSpeed(){
+        float minX = ((screen.getWidth()*(0.5f))/100);
+        float maxX = ((screen.getWidth()*(1f))/100);
+
+        Random rand = new Random();
+
+        return rand.nextFloat() * (maxX - minX) + minX;
     }
 
     public void move() {
