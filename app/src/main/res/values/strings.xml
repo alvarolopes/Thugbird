@@ -21,4 +21,10 @@
     <string name="hueKey">hue</string>
     <string name="satKey">sat</string>
     <string name="maxScoreKey">maxScore</string>
+    <string name="changecolor">Change Color</string>
+    <string name="startgame">Play game</string>
+    <string name="hueText">Hue</string>
+    <string name="satText">Saturation</string>
+    <string name="reset">Reset</string>
+    <string name="save">Save</string>
 </resources>

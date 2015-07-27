@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import dinamo.thugbird.engine.Game;
@@ -13,6 +14,7 @@ public class MainActivity extends Activity {
     private Game game;
     private FrameLayout container;
     private Thread thread;
+    private RelativeLayout mainPanel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         container = (FrameLayout) findViewById(R.id.container);
+        mainPanel = (RelativeLayout) findViewById(R.id.mainPanel);
 
         this.game = new Game(this);
         container.addView(this.game);
@@ -55,6 +58,7 @@ public class MainActivity extends Activity {
     }
 
     public void RestartGame() {
+        mainPanel.setBackground(getResources().getDrawable((R.drawable.background)));
         container.removeView(this.game);
 
         this.game  = null;
@@ -65,7 +69,7 @@ public class MainActivity extends Activity {
         thread.interrupt();
         thread = new Thread(this.game);
         thread.start();
-
+        mainPanel.setBackground(null);
     }
 
     @Override

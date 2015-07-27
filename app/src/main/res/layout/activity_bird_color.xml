@@ -14,25 +14,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <ImageView
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:src="@drawable/bird"
-        android:background="@drawable/picture_frame"
-        android:scaleType="centerInside"
-
-        android:padding="100dp"
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="310dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        />
+        android:background="@drawable/minibg">
+        <ImageView
+            android:id="@+id/result"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+
+            android:src="@drawable/bird"
+            android:background="@drawable/picture_frame"
+            android:scaleType="centerInside"/>
+    </RelativeLayout>
+
 
     <TextView
         android:id="@+id/texthue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hue"
+        android:text="@string/hueText"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/huebar"
         android:layout_alignParentLeft="true" />
@@ -51,7 +58,7 @@
         android:id="@+id/textsat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Saturation"
+        android:text="@string/satText"
         android:layout_above="@+id/resethsv"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="71dp" />
@@ -68,26 +75,30 @@
         android:layout_alignParentLeft="true" />
 
 
-    <Button
+    <ImageButton
         android:id="@+id/resethsv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reset"
+        android:contentDescription="@string/reset"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_clear"
+        android:background="@null"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:layout_marginLeft="5dp"
         android:layout_marginBottom="50dp"
          />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnSaveColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:contentDescription="@string/save"
         android:layout_alignParentBottom="true"
+        android:background="@null"
         android:layout_alignParentRight="true"
+        android:src="@drawable/ic_save"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:layout_marginRight="5dp"

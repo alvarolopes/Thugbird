@@ -7,12 +7,14 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="1">
+        android:background="@drawable/background">
     </FrameLayout>
+
     <RelativeLayout
         android:id="@+id/mainPanel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@null"
         android:visibility="visible">
         <TextView
             android:layout_width="wrap_content"
@@ -60,9 +62,6 @@
             android:textColorHint="#ff043504"
             android:textColorLink="#ff043504"
             android:textSize="30sp" />
-
-
-
     </RelativeLayout>
 
     <TextView
@@ -117,6 +116,7 @@
             android:layout_marginTop="10dp"
             android:src="@drawable/ic_retry"
             android:contentDescription="@string/tryAgain" />
+
 
     </RelativeLayout>
 </RelativeLayout>
