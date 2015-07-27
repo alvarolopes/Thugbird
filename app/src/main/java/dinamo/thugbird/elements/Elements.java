@@ -70,9 +70,7 @@ public class Elements {
             Money money = iterator2.next();
             money.move();
             if(money.isGet() || money.isOutOfScreen()) {
-                iterator2.remove();
-                Money newPrize = new Money(getRandomMoneyTop(), getLatestElementRight(), context, screen);
-                iterator2.add(newPrize);
+                money.reset(getRandomMoneyTop(),getLatestElementRight());
             }
         }
 
@@ -81,9 +79,7 @@ public class Elements {
             Police police = iterator.next();
             police.move();
             if(police.isOutOfScreen()) {
-                iterator.remove();
-                Police newPolice = new Police(getRandomPoliceTop(), getLatestElementRight(), context, screen);
-                iterator.add(newPolice);
+                police.reset(getRandomPoliceTop(), getLatestElementRight());
             }
         }
     }

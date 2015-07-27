@@ -25,7 +25,7 @@ public class Score{
 
         this.sound = sound;
         this.settings = settings;
-        this.maxScore =  settings.getInt("maxScore",0);
+        this.maxScore =  settings.getInt(context.getString(R.string.maxScoreKey),0);
         txtHighScore.setText(context.getString(R.string.highScore) +String.valueOf(this.maxScore));
         txtScore.setText(context.getString(R.string.score)+String.valueOf(this.score));
     }
@@ -44,7 +44,7 @@ public class Score{
     public void endGame(){
         if (score > maxScore) {
             SharedPreferences.Editor editor = settings.edit();
-            editor.putInt("maxScore", score);
+            editor.putInt(context.getString(R.string.maxScoreKey), score);
             editor.commit();
         }
     }

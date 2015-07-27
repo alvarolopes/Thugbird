@@ -24,37 +24,26 @@
             android:layout_alignParentStart="true"
             android:paddingStart="10dp"
             android:padding="15dp"
-            android:textColorLink="#ffffffff"
-            android:textColorHint="#ffffffff"
-            android:textColorHighlight="#ffffffff"
-            android:textColor="#ffffffff"
-            android:text="@string/score" />
-        <Button
-            android:text="@string/pause"
+            android:textColorLink="#ff043504"
+            android:textColorHint="#ff043504"
+            android:textColorHighlight="#ff043504"
+            android:textColor="#ff043504"
+            android:text="@string/score"
+            android:textSize="30sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
             android:id="@+id/btnPause"
-            android:shadowDy="5"
-            android:shadowDx="5"
-            android:shadowColor="#FF000000"
-            android:shadowRadius="5"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="right|top"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:background="#64c3c3c3"
-            android:textColor="#ffffffff"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:textColorHighlight="#ffc3c3c3"
-            android:singleLine="false"
+            android:layout_below="@+id/txtScore"
+            android:src="@drawable/ic_pause"
+            android:contentDescription="@string/Pause_hint"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp"
-            android:textColorHint="#ffc3c3c3"
-            android:textColorLink="#ffc3c3c3"
-            android:paddingBottom="4dp"
-            android:layout_alignParentStart="false">
-        </Button>
+            android:layout_marginTop="15dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,11 +53,16 @@
             android:layout_gravity="left|bottom"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
+            android:fontFamily="f"
             android:padding="15dp"
-            android:textColor="#ffffffff"
-            android:textColorHighlight="#ffffffff"
-            android:textColorHint="#ffffffff"
-            android:textColorLink="#ffffffff" />
+            android:textColor="#ff043504"
+            android:textColorHighlight="#ff043504"
+            android:textColorHint="#ff043504"
+            android:textColorLink="#ff043504"
+            android:textSize="30sp" />
+
+
+
     </RelativeLayout>
 
     <TextView
@@ -104,37 +98,25 @@
             android:id="@+id/txtGameOver"
             android:shadowDy="5"
             android:shadowDx="5"
-            android:shadowColor="#FF000000"
+            android:shadowColor="#FF424141"
             android:shadowRadius="5"
             android:layout_gravity="center"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:textColor="#ffff3c00"
-            android:textSize="50sp"
+            android:textColor="#ff000000"
+            android:textSize="70sp"
             android:textStyle="bold" />
-        <Button
-            android:text="@string/tryAgain"
-            android:id="@+id/btnTryAgain"
+
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="visible"
-            android:alpha="99"
-            android:shadowDy="5"
-            android:shadowDx="5"
-            android:shadowColor="#FF000000"
-            android:shadowRadius="5"
+            android:background="@null"
+            android:id="@+id/btnTryAgain"
             android:layout_below="@+id/txtGameOver"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="36dp"
-            android:background="#ff3166b5"
-            android:paddingLeft="15dp"
-            android:paddingTop="10dp"
-            android:paddingRight="15dp"
-            android:paddingBottom="10dp"
-            android:textStyle="bold"
-            android:textColor="#ffffffff"
-            android:textSize="20sp">
-        </Button>
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_retry"
+            android:contentDescription="@string/tryAgain" />
+
     </RelativeLayout>
 </RelativeLayout>

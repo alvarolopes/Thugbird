@@ -19,7 +19,6 @@ import dinamo.thugbird.grafics.Screen;
 
 public class Game extends SurfaceView implements Runnable, View.OnTouchListener {
 
-    private static final String PREFS_NAME = "ThugBirdScore";
     private boolean isRunning = false;
     public boolean isPaused = false;
 
@@ -42,7 +41,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
         screen = new Screen(context);
         sound = new Sound(context);
 
-        settings = context.getSharedPreferences(PREFS_NAME, 0);
+        settings = context.getSharedPreferences(context.getString(R.string.PrefsName), 0);
         initializeElements();
     }
 
@@ -111,7 +110,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
 
         new Pause(context,this);
         this.score = new Score(sound, settings,context);
-        this.bird = new Bird(context, sound, screen);
+        this.bird = new Bird(context, sound, screen, settings);
         this.elements = new Elements(screen, context);
     }
 

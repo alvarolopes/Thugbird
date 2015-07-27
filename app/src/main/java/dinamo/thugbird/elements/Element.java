@@ -5,6 +5,9 @@ import dinamo.thugbird.grafics.Screen;
 public abstract class Element {
 
     int top;
+
+
+
     int left;
     private final int width;
     private final int height;
@@ -70,6 +73,17 @@ public abstract class Element {
         return newPixels;
     }
 
+    public void reset(int top, int left){
+        setTop(top);
+        setLeft(left);
+    }
 
+    private void setLeft(int left) {
+        this.left = left;
+    }
+
+    private void setTop(int top) {
+        this.top = top;
+    }
 
 }
