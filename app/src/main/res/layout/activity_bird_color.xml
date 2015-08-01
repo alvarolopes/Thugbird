@@ -3,10 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
     <TextView
@@ -15,6 +11,7 @@
         android:layout_height="wrap_content" />
 
     <RelativeLayout
+        android:id="@+id/picture"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginRight="80dp"
@@ -31,69 +28,95 @@
 
             android:src="@drawable/game_bird"
             android:background="@drawable/picture_frame"
-            android:scaleType="centerInside"/>
+            android:scaleType="centerInside"
+            android:contentDescription="@string/pictureFrame" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_above="@+id/buttons">
+
+        <TextView
+            android:id="@+id/texthue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hueText"
+            android:layout_above="@+id/huebar"
+            android:layout_alignParentLeft="true" />
+        <SeekBar
+            android:progressDrawable="@drawable/red_scrubber_progress"
+            android:thumb="@drawable/red_scrubber_control"
+            android:id="@+id/huebar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="511"
+            android:progress="256"
+            android:layout_above="@+id/textsat"
+            android:layout_alignParentLeft="true" />
+        <TextView
+            android:id="@+id/textsat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/satText"
+            android:layout_above="@+id/satbar" />
+        <SeekBar
+            android:progressDrawable="@drawable/red_scrubber_progress"
+            android:thumb="@drawable/red_scrubber_control"
+            android:id="@+id/satbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="511"
+            android:progress="256"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" />
+
     </RelativeLayout>
 
 
-    <TextView
-        android:id="@+id/texthue"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hueText"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/huebar"
-        android:layout_alignParentLeft="true" />
-    <SeekBar
-        android:progressDrawable="@drawable/red_scrubber_progress"
-        android:thumb="@drawable/red_scrubber_control"
-        android:id="@+id/huebar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="511"
-        android:progress="256"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/textsat"
-        android:layout_alignParentLeft="true" />
-    <TextView
-        android:id="@+id/textsat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/satText"
-        android:layout_above="@+id/resethsv"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="71dp" />
-    <SeekBar
-        android:progressDrawable="@drawable/red_scrubber_progress"
-        android:thumb="@drawable/red_scrubber_control"
-        android:id="@+id/satbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="511"
-        android:progress="256"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/texthue"
-        android:layout_alignParentLeft="true" />
+        android:orientation="horizontal"
+        android:paddingBottom="50dp"
+        android:paddingTop="50dp"
+        android:id="@+id/buttons"
+        android:layout_alignParentBottom="true"
+        android:baselineAligned="false">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/button1"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/reset"
+                android:id="@+id/resethsv"
+                android:background="@drawable/button_clear"
+                android:layout_centerInParent="true"
+                android:paddingRight="50dp"/>
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/save"
-        android:background="@drawable/button_save"
-        android:id="@+id/btnSaveColor"
-        android:layout_marginRight="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="90dp"
-        android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/button2"
+            android:layout_weight="1">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/reset"
-        android:id="@+id/resethsv"
-        android:background="@drawable/button_clear"
-        android:layout_marginLeft="50dp"
-        android:layout_marginBottom="90dp"
-        android:layout_alignParentBottom="true"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/save"
+                android:background="@drawable/button_save_color"
+                android:layout_centerInParent="true"
+                android:id="@+id/btnSaveColor"/>
 
+        </RelativeLayout>
+
+    </LinearLayout>
 </RelativeLayout>
