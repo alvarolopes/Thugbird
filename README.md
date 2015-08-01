@@ -8,5 +8,5 @@ course: https://www.alura.com.br/curso-online-desenvolvendo-jogos-em-android
 
 After the end of the course I continued to improve the game and changed his initial idea.
 
-[![Wip](https://github.com/alvarolopes/Thugbird/blob/master/Thugbird%20-%20Media/Wip.jpg)](#features)
+[![Wip](https://github.com/alvarolopes/Thugbird/blob/master/ThugBird%20-%20Media/Wip.jpg)](#features)
 
