@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
-    android:background="@drawable/game_thugbird">
+    android:background="@drawable/game_thug_bird">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/changecolor"
+                android:contentDescription="@string/changeColor"
                 android:id="@+id/btnChangeColor"
                 android:background="@drawable/button_change_color"
                 android:layout_centerInParent="true"/>
@@ -39,7 +39,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/startgame"
+                android:contentDescription="@string/startGame"
                 android:background="@drawable/button_start_game"
                 android:id="@+id/btnPlayGame"
                 android:layout_centerInParent="true"/>

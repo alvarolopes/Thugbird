@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
         thread = new Thread(this.game);
         thread.start();
 
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/RosewoodStd-Regular.otf");
+        Typeface font = Typeface.createFromAsset(getAssets(), getString(R.string.thugFont));
         TextView score = (TextView) findViewById(R.id.txtScore);
         TextView busted = (TextView) findViewById(R.id.txtGameOver);
         TextView paused = (TextView) findViewById(R.id.txtPaused);
@@ -39,8 +39,6 @@ public class MainActivity extends Activity {
         score.setTypeface(font);
         busted.setTypeface(font);
         paused.setTypeface(font);
-
-
     }
 
     @Override

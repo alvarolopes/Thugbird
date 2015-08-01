@@ -1,9 +1,7 @@
 package dinamo.thugbird.elements;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 

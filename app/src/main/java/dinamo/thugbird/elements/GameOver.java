@@ -3,7 +3,6 @@ package dinamo.thugbird.elements;
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import dinamo.thugbird.MainActivity;
@@ -11,10 +10,7 @@ import dinamo.thugbird.R;
 
 public class GameOver{
 
-    private final Context context;
-
     public GameOver(final Context context) {
-        this.context = context;
 
         ((MainActivity) context).runOnUiThread(new Runnable() {
             @Override

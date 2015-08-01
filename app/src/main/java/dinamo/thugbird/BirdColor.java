@@ -9,7 +9,6 @@ package dinamo.thugbird;
     import android.view.View;
     import android.view.View.OnClickListener;
     import android.widget.Button;
-    import android.widget.ImageButton;
     import android.widget.ImageView;
     import android.widget.SeekBar;
     import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -20,12 +19,12 @@ package dinamo.thugbird;
 
 public class BirdColor extends Activity {
 
-    TextView textSource;
-    ImageView imageResult;
+    private ImageView imageResult;
     private SeekBar hueBar, satBar;
-    TextView hueText, satText, valText;
-    Button btnResetHSV;
-    Bitmap bitmapMaster;
+    private TextView hueText;
+    private TextView satText;
+    private Button btnResetHSV;
+    private Bitmap bitmapMaster;
     private SharedPreferences settings;
     private Context context;
 
@@ -35,17 +34,15 @@ public class BirdColor extends Activity {
             context = this;
             setContentView(R.layout.activity_bird_color);
             settings = getSharedPreferences(getString(R.string.PrefsName), 0);
-
-            textSource = (TextView) findViewById(R.id.sourceuri);
             imageResult = (ImageView) findViewById(R.id.result);
 
-            hueText = (TextView) findViewById(R.id.texthue);
-            satText = (TextView) findViewById(R.id.textsat);
-            hueBar = (SeekBar) findViewById(R.id.huebar);
-            satBar = (SeekBar) findViewById(R.id.satbar);
+            hueText = (TextView) findViewById(R.id.textHue);
+            satText = (TextView) findViewById(R.id.textSat);
+            hueBar = (SeekBar) findViewById(R.id.hueBar);
+            satBar = (SeekBar) findViewById(R.id.satBar);
             hueBar.setOnSeekBarChangeListener(seekBarChangeListener);
             satBar.setOnSeekBarChangeListener(seekBarChangeListener);
-            btnResetHSV = (Button)findViewById(R.id.resethsv);
+            btnResetHSV = (Button)findViewById(R.id.clear);
             btnResetHSV.setOnClickListener(new OnClickListener() {
 
                 @Override
@@ -65,20 +62,20 @@ public class BirdColor extends Activity {
 
             loadBitmapHSV();
 
-            Button btnSalvar = (Button) findViewById(R.id.btnSaveColor);
-            btnSalvar.setOnClickListener(new OnClickListener() {
+            Button btnSave = (Button) findViewById(R.id.btnSaveColor);
+            btnSave.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     SharedPreferences.Editor editor = settings.edit();
                     editor.putFloat(getString(R.string.hueKey), getHue());
                     editor.putFloat(getString(R.string.satKey), getSat());
-                    editor.commit();
-                    Toast.makeText(context,getString(R.string.colorSaved),Toast.LENGTH_LONG).show();
+                    editor.apply();
+                    Toast.makeText(context, getString(R.string.colorSaved), Toast.LENGTH_LONG).show();
                 }
             });
         }
 
-        OnSeekBarChangeListener seekBarChangeListener = new OnSeekBarChangeListener() {
+        private final OnSeekBarChangeListener seekBarChangeListener = new OnSeekBarChangeListener() {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress,
@@ -114,14 +111,12 @@ public class BirdColor extends Activity {
 
         private float getHue(){
             int progressHue = hueBar.getProgress() - 256;
-            float hue = (float) progressHue * 360 / 256;
-            return hue;
+            return (float) progressHue * 360 / 256;
         }
 
         private float getSat(){
             int progressSat = satBar.getProgress() - 256;
-            float sat = (float) progressSat / 256;
-            return sat;
+            return (float) progressSat / 256;
         }
 
         private void loadBitmapHSV() {

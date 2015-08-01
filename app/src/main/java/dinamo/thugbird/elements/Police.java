@@ -10,21 +10,20 @@ import java.util.Random;
 import dinamo.thugbird.R;
 import dinamo.thugbird.grafics.Screen;
 
-public class Police extends Element{
+class Police extends Element{
 
-    private static int HEIGHT = 120;
-    private static int WIDTH = 240;
     private final Bitmap skin;
     private final float speed;
-    private Screen screen;
+    private final Screen screen;
 
     public Police(int top, int left, Context context, Screen screen){
-        super(top, left, WIDTH, HEIGHT, screen);
+
+        super(top, left, 240, 120, screen);
         this.screen = screen;
         this.speed =  randomSpeed();
 
         Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.game_police);
-        this.skin = Bitmap.createScaledBitmap(bp, getWidth(), getheight(), false);
+        this.skin = Bitmap.createScaledBitmap(bp, getWidth(), getHeight(), false);
     }
 
     public void drawAt(Canvas canvas) {

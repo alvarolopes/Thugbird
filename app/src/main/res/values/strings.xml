@@ -1,19 +1,12 @@
 <resources>
     <string name="app_name">ThugBird</string>
     <string name="title_activity_main">Thug Bird</string>
-    <string name="pause">||</string>
     <string name="score">$</string>
     <string name="highScore">High Score: </string>
     <string name="busted">Busted!</string>
     <string name="tryAgain">Try Again!</string>
     <string name="paused">Paused</string>
-    <string name="title_activity_splash_screen">SplashScreenActivity</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="touchToStart">Touch to Start</string>
-    <string name="splashScreenDescription">Thug Bird SplashScreen</string>
-    <string name="bird">Bird</string>
     <string name="title_activity_bird_color">BirdColor</string>
     <string name="Pause_hint">Pause</string>
     <string name="PrefsName">ThugBird</string>
@@ -21,11 +14,12 @@
     <string name="hueKey">hue</string>
     <string name="satKey">sat</string>
     <string name="maxScoreKey">maxScore</string>
-    <string name="changecolor">Change Color</string>
-    <string name="startgame">Play game</string>
+    <string name="changeColor">Change Color</string>
+    <string name="startGame">Play game</string>
     <string name="hueText">Hue</string>
     <string name="satText">Saturation</string>
     <string name="reset">Reset</string>
     <string name="save">Save</string>
     <string name="pictureFrame">Picture Frame</string>
+    <string name="thugFont">fonts/RosewoodStd-Regular.otf</string>
 </resources>

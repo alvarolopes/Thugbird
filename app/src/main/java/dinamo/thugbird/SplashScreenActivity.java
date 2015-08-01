@@ -4,36 +4,20 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import dinamo.thugbird.R;
 
 public class SplashScreenActivity extends Activity {
 
-    private Context contex;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        contex = this;
+        context = this;
         setContentView(R.layout.activity_splash_screen);
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/RosewoodStd-Regular.otf");
@@ -46,7 +30,7 @@ public class SplashScreenActivity extends Activity {
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(contex, MainActivity.class);
+                Intent intent = new Intent(context, MainActivity.class);
 
                 startActivity(intent);
             }
@@ -55,7 +39,7 @@ public class SplashScreenActivity extends Activity {
         btnChangeColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(contex, BirdColor.class);
+                Intent intent = new Intent(context, BirdColor.class);
 
                 startActivity(intent);
             }

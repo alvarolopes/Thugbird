@@ -29,7 +29,7 @@
             android:textColorHint="#ff043504"
             android:textColorHighlight="#ff043504"
             android:textColor="#ff043504"
-            android:background="@drawable/game_money_backgroung"
+            android:background="@drawable/game_money_background"
             android:text="@string/score"
             android:textSize="20sp"
             android:singleLine="true"

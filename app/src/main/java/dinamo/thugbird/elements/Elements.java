@@ -18,12 +18,10 @@ public class Elements {
     private final List<Police> cops = new ArrayList<>();
     private final List<Money> prizes = new ArrayList<>();
     private final List<Background> bgs = new ArrayList<>();
-    private final Screen screen;
-    private final Context context;
+    private Screen screen;
 
     public Elements(Screen screen, Context context) {
         this.screen = screen;
-        this.context = context;
         int initialPosition = screen.getWidth();
         rand = new Random();
 
@@ -65,20 +63,16 @@ public class Elements {
             }
         }
 
-        ListIterator<Money> iterator2 = prizes.listIterator();
-        while (iterator2.hasNext()) {
-            Money money = iterator2.next();
+        for (Money money : prizes) {
             money.move();
-            if(money.isGet() || money.isOutOfScreen()) {
-                money.reset(getRandomMoneyTop(),getLatestMoneyRight());
+            if (money.isGet() || money.isOutOfScreen()) {
+                money.reset(getRandomMoneyTop(), getLatestMoneyRight());
             }
         }
 
-        ListIterator<Police> iterator = cops.listIterator();
-        while (iterator.hasNext()) {
-            Police police = iterator.next();
+        for (Police police : cops) {
             police.move();
-            if(police.isOutOfScreen()) {
+            if (police.isOutOfScreen()) {
                 police.reset(getRandomPoliceTop(), getLatestElementRight());
             }
         }
@@ -123,16 +117,16 @@ public class Elements {
 
     private int getRandomPoliceTop() {
 
-        int policeHeight = 0;
+        int policeHeight;
         int random = screen.getHeight()/2;
 
         if (!cops.isEmpty()){
-            policeHeight = cops.get(0).getheight();
+            policeHeight = cops.get(0).getHeight();
             random = randInt((screen.getHeight()*11/100) +policeHeight, screen.getHeight()-(screen.getHeight()*11/100)-policeHeight);
         }
 
         for (Police cop : cops) {
-            if (cop.hasHorizontalCollision(random, random + cops.get(0).getheight()))
+            if (cop.hasHorizontalCollision(random, random + cops.get(0).getHeight()))
                 random = getRandomPoliceTop();
         }
 

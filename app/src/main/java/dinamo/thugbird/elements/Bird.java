@@ -23,7 +23,7 @@ public class Bird extends Element{
     private final Matrix matrix;
 
     private final Sound sound;
-    private Screen screen;
+    private final Screen screen;
     private float verticalSpeed = 0.5f;
 
     public Bird(Context context, Sound sound, Screen screen, SharedPreferences settings){
@@ -39,7 +39,7 @@ public class Bird extends Element{
         if (!(sat == 256 && hue == 256))
             bp = ColorAdjustment.updateHSV(bp, hue, sat);
 
-        this.skin = Bitmap.createScaledBitmap(bp, getWidth(), getheight(), false);
+        this.skin = Bitmap.createScaledBitmap(bp, getWidth(), getHeight(), false);
     }
 
     public void jump(float pressure) {

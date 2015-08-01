@@ -13,9 +13,9 @@ public class Score{
     private final TextView txtScore;
     private int score = 0;
     private final Sound sound;
-    private SharedPreferences settings;
-    private int maxScore;
-    private Context context;
+    private final SharedPreferences settings;
+    private final int maxScore;
+    private final Context context;
 
 
     public Score(Sound sound, SharedPreferences settings, Context context){
@@ -44,7 +44,7 @@ public class Score{
         if (score > maxScore) {
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt(context.getString(R.string.maxScoreKey), score);
-            editor.commit();
+            editor.apply();
         }
     }
 }

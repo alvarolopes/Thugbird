@@ -31,7 +31,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
     private final Context context;
     private final Sound sound;
 
-    private SharedPreferences settings;
+    private final SharedPreferences settings;
 
     public Game(Context context) {
         super(context);

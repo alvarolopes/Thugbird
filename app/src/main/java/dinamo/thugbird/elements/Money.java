@@ -23,13 +23,13 @@ class Money extends Element{
 
         matrix = new Matrix();
         Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.game_money);
-        this.skin = Bitmap.createScaledBitmap(bp, getWidth(), getheight(), false);
+        this.skin = Bitmap.createScaledBitmap(bp, getWidth(), getHeight(), false);
     }
 
     public void drawAt(Canvas canvas) {
 
         matrix.reset();
-        matrix.setRotate(top, skin.getWidth() / 2, skin.getHeight()/2);
+        matrix.setRotate(top, skin.getWidth() / 2, skin.getHeight() / 2);
         matrix.postTranslate(left, top);
 
         canvas.drawBitmap(skin, matrix, null);

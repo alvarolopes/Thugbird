@@ -6,7 +6,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/sourceuri"
+        android:id="@+id/sourceUri"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -18,7 +18,7 @@
         android:layout_marginBottom="310dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/game_minibg">
+        android:background="@drawable/game_mini_bg">
         <ImageView
             android:id="@+id/result"
             android:layout_width="fill_parent"
@@ -41,32 +41,32 @@
         android:layout_marginLeft="10dp">
 
         <TextView
-            android:id="@+id/texthue"
+            android:id="@+id/textHue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/hueText"
-            android:layout_above="@+id/huebar"
+            android:layout_above="@+id/hueBar"
             android:layout_alignParentLeft="true" />
         <SeekBar
             android:progressDrawable="@drawable/red_scrubber_progress"
             android:thumb="@drawable/red_scrubber_control"
-            android:id="@+id/huebar"
+            android:id="@+id/hueBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:max="511"
             android:progress="256"
-            android:layout_above="@+id/textsat"
+            android:layout_above="@+id/textSat"
             android:layout_alignParentLeft="true" />
         <TextView
-            android:id="@+id/textsat"
+            android:id="@+id/textSat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/satText"
-            android:layout_above="@+id/satbar" />
+            android:layout_above="@+id/satBar" />
         <SeekBar
             android:progressDrawable="@drawable/red_scrubber_progress"
             android:thumb="@drawable/red_scrubber_control"
-            android:id="@+id/satbar"
+            android:id="@+id/satBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:max="511"
@@ -97,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/reset"
-                android:id="@+id/resethsv"
+                android:id="@+id/clear"
                 android:background="@drawable/button_clear"
                 android:layout_centerInParent="true"
                 android:paddingRight="50dp"/>
