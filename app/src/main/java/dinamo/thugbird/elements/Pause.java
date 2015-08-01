@@ -5,6 +5,7 @@ import android.media.Image;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import dinamo.thugbird.MainActivity;
 import dinamo.thugbird.R;
@@ -27,6 +28,7 @@ public class Pause {
                         }
                         else{
                             ((MainActivity)context).findViewById(R.id.txtPaused).setVisibility(View.VISIBLE);
+                            ((TextView)((MainActivity)context).findViewById(R.id.txtPaused)).setText(((TextView)((MainActivity)context).findViewById(R.id.txtPaused)).getText());
                             game.pause();
                         }
                     }
