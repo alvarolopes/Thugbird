@@ -8,7 +8,9 @@ import android.view.WindowManager;
 public class Screen {
 
     private final DisplayMetrics metrics;
-    public static final int BASE_RESOUTION = 1776;
+    public static final int BASE_HEIGHT_REVOLUTION = 1776;
+    public static final int BASE_WIDTH_REVOLUTION = 1080;
+
     private Context context;
 
     public Screen(Context context){

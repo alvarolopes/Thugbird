@@ -10,8 +10,8 @@ import dinamo.thugbird.grafics.Screen;
 
 class Money extends Element{
 
-    private static final int WIDTH = 50;
-    public static final int HEIGHT = 30;
+    private static final int WIDTH = 49;
+    public static final int HEIGHT = 39;
     private final Bitmap skin;
 
     private boolean get = false;
@@ -19,7 +19,7 @@ class Money extends Element{
     public Money(int top, int left, Context context, Screen screen){
         super(top, left, WIDTH,HEIGHT, screen) ;
 
-        Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.money);
+        Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.game_money);
         this.skin = Bitmap.createScaledBitmap(bp, getWidth(), getheight(), false);
     }
 
@@ -43,5 +43,9 @@ class Money extends Element{
         this.get = true;
     }
 
-
+    @Override
+    public void reset(int top, int left) {
+        super.reset(top, left);
+        get = false;
+    }
 }

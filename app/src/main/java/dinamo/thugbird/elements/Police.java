@@ -23,7 +23,7 @@ public class Police extends Element{
         this.screen = screen;
         this.speed =  randomSpeed();
 
-        Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.police);
+        Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.game_police);
         this.skin = Bitmap.createScaledBitmap(bp, getWidth(), getheight(), false);
     }
 

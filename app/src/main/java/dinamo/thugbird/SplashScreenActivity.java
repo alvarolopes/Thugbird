@@ -34,8 +34,8 @@ public class SplashScreenActivity extends Activity {
         contex = this;
         setContentView(R.layout.activity_splash_screen);
 
-        ImageButton btnPlay = (ImageButton) findViewById(R.id.btnPlayGame);
-        ImageButton btnChangeColor = (ImageButton) findViewById(R.id.btnChangeColor);
+        Button btnPlay = (Button) findViewById(R.id.btnPlayGame);
+        Button btnChangeColor = (Button) findViewById(R.id.btnChangeColor);
 
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -70,7 +70,7 @@ public class Elements {
             Money money = iterator2.next();
             money.move();
             if(money.isGet() || money.isOutOfScreen()) {
-                money.reset(getRandomMoneyTop(),getLatestElementRight());
+                money.reset(getRandomMoneyTop(),getLatestMoneyRight());
             }
         }
 
@@ -91,6 +91,18 @@ public class Elements {
         }
 
         return maximo;
+    }
+
+    private int getLatestMoneyRight() {
+        int maximo = 0;
+        for(Money money : prizes) {
+            maximo = Math.max(money.getRight(0), maximo);
+        }
+
+        if (maximo < screen.getWidth())
+            return screen.getWidth();
+
+        return maximo+DISTANCE_BETWEEN_PIPES;
     }
 
     private int getLatestElementRight() {

@@ -15,8 +15,8 @@ public abstract class Element {
     Element(int top, int left, int width, int height,Screen screen)
     {
         this.top = top;
-        this.width = responsiblePixels(width,screen);
-        this.height = responsiblePixels(height,screen);
+        this.width = responsibleHWidth(width, screen);
+        this.height = responsibleHeight(height, screen);
         this.left = left;
     }
 
@@ -62,9 +62,20 @@ public abstract class Element {
 
     }
 
-    public static int responsiblePixels(int oldPixels, Screen screen ){
+    public static int responsibleHeight(int oldPixels, Screen screen){
         int currentResolution = screen.getHeight();
-        int baseResolution = screen.BASE_RESOUTION;
+        int baseResolution = screen.BASE_HEIGHT_REVOLUTION;
+
+        float percentualBaseResolution = ((oldPixels*100)/baseResolution);
+
+        int newPixels = (int)((currentResolution*percentualBaseResolution)/100);
+
+        return newPixels;
+    }
+
+    public static int responsibleHWidth(int oldPixels, Screen screen){
+        int currentResolution = screen.getWidth();
+        int baseResolution = screen.BASE_WIDTH_REVOLUTION;
 
         float percentualBaseResolution = ((oldPixels*100)/baseResolution);
 

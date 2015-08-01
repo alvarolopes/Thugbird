@@ -5,9 +5,7 @@ package dinamo.thugbird;
     import android.os.Bundle;
     import android.app.Activity;
     import android.graphics.Bitmap;
-    import android.graphics.Bitmap.Config;
     import android.graphics.BitmapFactory;
-    import android.graphics.Color;
     import android.view.View;
     import android.view.View.OnClickListener;
     import android.widget.Button;
@@ -26,7 +24,7 @@ public class BirdColor extends Activity {
     ImageView imageResult;
     private SeekBar hueBar, satBar;
     TextView hueText, satText, valText;
-    ImageButton btnResetHSV;
+    Button btnResetHSV;
     Bitmap bitmapMaster;
     private SharedPreferences settings;
     private Context context;
@@ -47,7 +45,7 @@ public class BirdColor extends Activity {
             satBar = (SeekBar) findViewById(R.id.satbar);
             hueBar.setOnSeekBarChangeListener(seekBarChangeListener);
             satBar.setOnSeekBarChangeListener(seekBarChangeListener);
-            btnResetHSV = (ImageButton)findViewById(R.id.resethsv);
+            btnResetHSV = (Button)findViewById(R.id.resethsv);
             btnResetHSV.setOnClickListener(new OnClickListener() {
 
                 @Override
@@ -59,7 +57,7 @@ public class BirdColor extends Activity {
                 }
             });
 
-            bitmapMaster = BitmapFactory.decodeResource(getResources(), R.drawable.bird);
+            bitmapMaster = BitmapFactory.decodeResource(getResources(), R.drawable.game_bird);
 
             // reset SeekBars
             setHueBar(settings.getFloat(context.getString(R.string.hueKey), 256));
@@ -67,7 +65,7 @@ public class BirdColor extends Activity {
 
             loadBitmapHSV();
 
-            ImageButton btnSalvar = (ImageButton) findViewById(R.id.btnSaveColor);
+            Button btnSalvar = (Button) findViewById(R.id.btnSaveColor);
             btnSalvar.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {

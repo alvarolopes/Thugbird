@@ -14,8 +14,8 @@ import dinamo.thugbird.grafics.Screen;
 
 public class Bird extends Element{
 
-    private static final int WIDTH = 100;
-    private static final int HEIGHT = 100;
+    private static final int WIDTH = 119;
+    private static final int HEIGHT = 107;
     private static final int X = 200;
     private static final int Y = 200;
 
@@ -27,12 +27,12 @@ public class Bird extends Element{
     private float verticalSpeed = 0.5f;
 
     public Bird(Context context, Sound sound, Screen screen, SharedPreferences settings){
-        super( Element.responsiblePixels(Y,screen),  Element.responsiblePixels(X,screen), WIDTH, HEIGHT, screen);
+        super( Element.responsibleHeight(Y, screen),  Element.responsibleHeight(X, screen), WIDTH, HEIGHT, screen);
         this.sound = sound;
         this.screen = screen;
 
         matrix = new Matrix();
-        Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.bird);
+        Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.game_bird);
 
         float sat = settings.getFloat(context.getString(R.string.satKey), 256);
         float hue = settings.getFloat(context.getString(R.string.hueKey), 256);

@@ -16,7 +16,7 @@ class Background {
     public Background(int position, Screen screen, Context context){
         this.position = position;
 
-        this.background = BitmapFactory.decodeResource(context.getResources(), R.drawable.background);
+        this.background = BitmapFactory.decodeResource(context.getResources(), R.drawable.game_background);
 
         final int maxSize = screen.getHeight();
         int outWidth;

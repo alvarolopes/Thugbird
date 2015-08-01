@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="false"
+        android:state_pressed="true"
+        android:drawable="@drawable/ic_change_color_pressed"
+        android:bottom="4px">
+        <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+            <item android:drawable="@drawable/ic_change_color_pressed">
+                <shape xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:innerRadius="5dp"
+                    android:innerRadiusRatio="@integer/abc_max_action_buttons"
+                    android:shape="oval">
+                    <solid android:color="#00002200"/>
+                    <stroke android:width="0dp" android:color="#fff" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_focused="false"
+        android:state_pressed="false"
+        android:drawable="@drawable/ic_change_color"
+        android:bottom="4px">
+        <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+            <item android:drawable="@drawable/ic_change_color">
+                <shape xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:innerRadius="5dp"
+                    android:innerRadiusRatio="@integer/abc_max_action_buttons"
+                    android:shape="oval">
+                    <solid android:color="#00002200"/>
+                    <stroke android:width="0dp" android:color="#fff" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>
+
+
+
+

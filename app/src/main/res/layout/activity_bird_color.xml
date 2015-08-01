@@ -21,7 +21,7 @@
         android:layout_marginBottom="310dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/minibg">
+        android:background="@drawable/game_minibg">
         <ImageView
             android:id="@+id/result"
             android:layout_width="fill_parent"
@@ -29,7 +29,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
 
-            android:src="@drawable/bird"
+            android:src="@drawable/game_bird"
             android:background="@drawable/picture_frame"
             android:scaleType="centerInside"/>
     </RelativeLayout>
@@ -75,33 +75,25 @@
         android:layout_alignParentLeft="true" />
 
 
-    <ImageButton
-        android:id="@+id/resethsv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/reset"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:src="@drawable/ic_clear"
-        android:background="@null"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginBottom="50dp"
-         />
-
-    <ImageButton
-        android:id="@+id/btnSaveColor"
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/save"
-        android:layout_alignParentBottom="true"
-        android:background="@null"
+        android:background="@drawable/button_save"
+        android:id="@+id/btnSaveColor"
+        android:layout_marginRight="50dp"
         android:layout_alignParentRight="true"
-        android:src="@drawable/ic_save"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="50dp"
-        />
+        android:layout_marginBottom="90dp"
+        android:layout_alignParentBottom="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/reset"
+        android:id="@+id/resethsv"
+        android:background="@drawable/button_clear"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="90dp"
+        android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>

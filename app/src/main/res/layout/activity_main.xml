@@ -7,7 +7,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background">
+        android:background="@drawable/game_background">
     </FrameLayout>
 
     <RelativeLayout
@@ -25,13 +25,18 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
             android:paddingStart="10dp"
-            android:padding="15dp"
             android:textColorLink="#ff043504"
             android:textColorHint="#ff043504"
             android:textColorHighlight="#ff043504"
             android:textColor="#ff043504"
+            android:background="#ffdddddd"
             android:text="@string/score"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:singleLine="true"
+            android:layout_marginTop="15dp"
+            android:paddingRight="10dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp" />
 
         <ImageButton
             android:layout_width="wrap_content"

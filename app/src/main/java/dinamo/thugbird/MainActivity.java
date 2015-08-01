@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
     }
 
     public void RestartGame() {
-        mainPanel.setBackground(getResources().getDrawable((R.drawable.background)));
+        mainPanel.setBackground(getResources().getDrawable((R.drawable.game_background)));
         container.removeView(this.game);
 
         this.game  = null;
