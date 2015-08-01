@@ -33,12 +33,10 @@ public class MainActivity extends Activity {
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/RosewoodStd-Regular.otf");
         TextView score = (TextView) findViewById(R.id.txtScore);
-        TextView highScore = (TextView) findViewById(R.id.txtHighScore);
         TextView busted = (TextView) findViewById(R.id.txtGameOver);
         TextView paused = (TextView) findViewById(R.id.txtPaused);
 
         score.setTypeface(font);
-        highScore.setTypeface(font);
         busted.setTypeface(font);
         paused.setTypeface(font);
 
@@ -58,7 +56,6 @@ public class MainActivity extends Activity {
     }
 
     public void RestartGame() {
-        mainPanel.setBackground(getResources().getDrawable((R.drawable.game_background)));
         container.removeView(this.game);
 
         this.game  = null;

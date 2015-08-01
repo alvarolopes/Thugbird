@@ -3,9 +3,11 @@ package dinamo.thugbird;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -34,6 +36,10 @@ public class SplashScreenActivity extends Activity {
         contex = this;
         setContentView(R.layout.activity_splash_screen);
 
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/RosewoodStd-Regular.otf");
+        TextView highScore = (TextView) findViewById(R.id.txtHighScore);
+        highScore.setTypeface(font);
+
         Button btnPlay = (Button) findViewById(R.id.btnPlayGame);
         Button btnChangeColor = (Button) findViewById(R.id.btnChangeColor);
 
@@ -55,5 +61,16 @@ public class SplashScreenActivity extends Activity {
             }
         });
 
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SharedPreferences settings = getSharedPreferences(getString(R.string.PrefsName), 0);
+        int maxScore =  settings.getInt(this.getString(R.string.maxScoreKey),0);
+        TextView txtHighScore = (TextView) this.findViewById(R.id.txtHighScore);
+        txtHighScore.setText(getString(R.string.highScore) + String.valueOf(maxScore));
     }
 }

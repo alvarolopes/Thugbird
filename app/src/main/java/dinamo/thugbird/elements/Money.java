@@ -10,7 +10,7 @@ import dinamo.thugbird.grafics.Screen;
 
 class Money extends Element{
 
-    private static final int WIDTH = 49;
+    private static final int WIDTH = 55;
     public static final int HEIGHT = 39;
     private final Bitmap skin;
 

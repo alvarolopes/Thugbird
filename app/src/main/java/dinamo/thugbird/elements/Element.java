@@ -5,9 +5,6 @@ import dinamo.thugbird.grafics.Screen;
 public abstract class Element {
 
     int top;
-
-
-
     int left;
     private final int width;
     private final int height;

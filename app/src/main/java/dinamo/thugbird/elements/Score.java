@@ -21,12 +21,11 @@ public class Score{
     public Score(Sound sound, SharedPreferences settings, Context context){
         this.context = context;
         txtScore = (TextView) ((MainActivity) context).findViewById(R.id.txtScore);
-        TextView txtHighScore = (TextView) ((MainActivity) context).findViewById(R.id.txtHighScore);
 
         this.sound = sound;
         this.settings = settings;
         this.maxScore =  settings.getInt(context.getString(R.string.maxScoreKey),0);
-        txtHighScore.setText(context.getString(R.string.highScore) +String.valueOf(this.maxScore));
+
         txtScore.setText(context.getString(R.string.score)+String.valueOf(this.score));
     }
 

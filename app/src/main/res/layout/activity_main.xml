@@ -17,26 +17,28 @@
         android:background="@null"
         android:visibility="visible">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="36dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/txtScore"
             android:layout_gravity="left|top"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:paddingStart="10dp"
+            android:paddingStart="5dp"
             android:textColorLink="#ff043504"
             android:textColorHint="#ff043504"
             android:textColorHighlight="#ff043504"
             android:textColor="#ff043504"
-            android:background="#ffdddddd"
+            android:background="@drawable/game_money_backgroung"
             android:text="@string/score"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:singleLine="true"
             android:layout_marginTop="15dp"
-            android:paddingRight="10dp"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp" />
+            android:paddingTop="5dp"
+            android:layout_alignParentEnd="false"
+            android:paddingLeft="15dp"
+            android:nestedScrollingEnabled="true"
+            android:layout_marginLeft="2dp"/>
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -51,22 +53,6 @@
             android:layout_marginRight="15dp"
             android:layout_marginTop="15dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/highScore"
-            android:id="@+id/txtHighScore"
-            android:layout_gravity="left|bottom"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:fontFamily="f"
-            android:padding="15dp"
-            android:textColor="#ff043504"
-            android:textColorHighlight="#ff043504"
-            android:textColorHint="#ff043504"
-            android:textColorLink="#ff043504"
-            android:textSize="30sp" />
     </RelativeLayout>
 
     <TextView
@@ -111,15 +97,14 @@
             android:textSize="70sp"
             android:textStyle="bold" />
 
-        <ImageButton
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@null"
+            android:background="@drawable/button_retry"
             android:id="@+id/btnTryAgain"
             android:layout_below="@+id/txtGameOver"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_retry"
             android:contentDescription="@string/tryAgain" />
 
 

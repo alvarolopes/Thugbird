@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import dinamo.thugbird.MainActivity;
 import dinamo.thugbird.R;
@@ -20,8 +21,10 @@ public class GameOver{
             public void run() {
                 ((MainActivity)context).findViewById(R.id.btnPause).setEnabled(false);
                 ((MainActivity)context).findViewById(R.id.gameOver).setVisibility(View.VISIBLE);
+                ((TextView)((MainActivity)context).findViewById(R.id.txtGameOver)).setText(((TextView)((MainActivity)context).findViewById(R.id.txtGameOver)).getText(),null);
 
-                final ImageButton btnTryAgain = (ImageButton) ((MainActivity)context).findViewById(R.id.btnTryAgain);
+
+                final Button btnTryAgain = (Button) ((MainActivity)context).findViewById(R.id.btnTryAgain);
                 btnTryAgain.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         ((MainActivity)context).findViewById(R.id.btnPause).setEnabled(true);
