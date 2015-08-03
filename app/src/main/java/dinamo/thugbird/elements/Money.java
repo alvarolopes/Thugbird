@@ -22,8 +22,7 @@ class Money extends Element{
         super(top, left, WIDTH,HEIGHT, screen) ;
 
         matrix = new Matrix();
-        Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.game_money);
-        this.skin = Bitmap.createScaledBitmap(bp, getWidth(), getHeight(), false);
+        skin = MoneySkin.getSkin(context, this);
     }
 
     public void drawAt(Canvas canvas) {
@@ -40,7 +39,7 @@ class Money extends Element{
     }
 
     public boolean isOutOfScreen() {
-        return left + WIDTH < 0;
+        return left + getWidth() < 0;
     }
 
     public boolean isGet() {

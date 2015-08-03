@@ -16,22 +16,7 @@ class Background {
     public Background(int position, Screen screen, Context context){
         this.position = position;
 
-        this.background = BitmapFactory.decodeResource(context.getResources(), R.drawable.game_background);
-
-        final int maxSize = screen.getHeight();
-        int outWidth;
-        int outHeight;
-        int inWidth = this.background.getWidth();
-        int inHeight = this.background.getHeight();
-        if(inWidth > inHeight){
-            outWidth = maxSize;
-            outHeight = (inHeight * maxSize) / inWidth;
-        } else {
-            outHeight = maxSize;
-            outWidth = (inWidth * maxSize) / inHeight;
-        }
-
-        this.background = Bitmap.createScaledBitmap(this.background, outWidth, outHeight, true);
+        this.background = BackgroundSkin.getSkin(context,screen);
     }
 
     public void drawAt(Canvas canvas){

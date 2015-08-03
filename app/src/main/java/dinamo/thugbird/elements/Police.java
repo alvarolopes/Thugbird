@@ -12,18 +12,16 @@ import dinamo.thugbird.grafics.Screen;
 
 class Police extends Element{
 
-    private final Bitmap skin;
+    private Bitmap skin;
     private final float speed;
     private final Screen screen;
 
-    public Police(int top, int left, Context context, Screen screen){
+    public Police(int top, int left,Context context, Screen screen){
 
         super(top, left, 240, 120, screen);
         this.screen = screen;
         this.speed =  randomSpeed();
-
-        Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.game_police);
-        this.skin = Bitmap.createScaledBitmap(bp, getWidth(), getHeight(), false);
+        this.skin = PoliceSkin.getSkin(context,this);
     }
 
     public void drawAt(Canvas canvas) {
@@ -45,6 +43,10 @@ class Police extends Element{
 
     public boolean isOutOfScreen() {
         return left + getWidth() < 0;
+    }
+
+    public void setSkin(Bitmap skin) {
+        this.skin = skin;
     }
 
 }

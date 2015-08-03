@@ -39,7 +39,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
         setOnTouchListener(this);
 
         screen = new Screen(context);
-        sound = new Sound(context);
+        sound = Sound.getInstance(context);
 
         settings = context.getSharedPreferences(context.getString(R.string.PrefsName), 0);
         initializeElements();

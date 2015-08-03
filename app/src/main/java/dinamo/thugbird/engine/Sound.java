@@ -6,6 +6,7 @@ import android.media.SoundPool;
 
 import dinamo.thugbird.R;
 
+
 public class Sound {
 
     private final SoundPool soundPool;
@@ -13,7 +14,7 @@ public class Sound {
     private static int SCORE ;
     private static int BUMP ;
 
-    public Sound(Context context) {
+    private Sound(Context context) {
         soundPool = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
         JUMP = soundPool.load(context, R.raw.jump, 0);
         SCORE = soundPool.load(context, R.raw.score, 0);
@@ -35,6 +36,20 @@ public class Sound {
     public void playBump() {
         play(BUMP);
     }
+
+    private static Sound instance = null;
+
+    protected void Sound(){}
+
+    public static Sound getInstance(Context context) {
+        if(instance == null) {
+            instance = new Sound(context);
+
+            return instance;
+        }
+        return instance;
+    }
+
 
 }
 

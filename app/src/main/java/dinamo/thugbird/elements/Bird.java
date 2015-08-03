@@ -32,14 +32,8 @@ public class Bird extends Element{
         this.screen = screen;
 
         matrix = new Matrix();
-        Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.game_bird);
 
-        float sat = settings.getFloat(context.getString(R.string.satKey), 256);
-        float hue = settings.getFloat(context.getString(R.string.hueKey), 256);
-        if (!(sat == 256 && hue == 256))
-            bp = ColorAdjustment.updateHSV(bp, hue, sat);
-
-        this.skin = Bitmap.createScaledBitmap(bp, getWidth(), getHeight(), false);
+        this.skin = BirdSkin.getSkin(context, this, settings);
     }
 
     public void jump(float pressure) {
