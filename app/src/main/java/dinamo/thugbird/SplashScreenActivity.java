@@ -39,7 +39,7 @@ public class SplashScreenActivity extends Activity {
         btnChangeColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, BirdColor.class);
+                Intent intent = new Intent(context, BirdColorActivity.class);
 
                 startActivity(intent);
             }

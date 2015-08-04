@@ -11,8 +11,8 @@ import dinamo.thugbird.grafics.Screen;
 
 class Money extends Element{
 
-    private static final int WIDTH = 55;
-    public static final int HEIGHT = 39;
+    private static final int WIDTH = 60;
+    public static final int HEIGHT = 40;
     private final Bitmap skin;
     private final Matrix matrix;
 
@@ -22,7 +22,7 @@ class Money extends Element{
         super(top, left, WIDTH,HEIGHT, screen) ;
 
         matrix = new Matrix();
-        skin = MoneySkin.getSkin(context, this);
+        skin = SkinFactory.getMoneySkin(context, this);
     }
 
     public void drawAt(Canvas canvas) {

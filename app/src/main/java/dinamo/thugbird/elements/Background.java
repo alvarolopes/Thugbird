@@ -2,10 +2,8 @@ package dinamo.thugbird.elements;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
-import dinamo.thugbird.R;
 import dinamo.thugbird.grafics.Screen;
 
 class Background {
@@ -16,7 +14,7 @@ class Background {
     public Background(int position, Screen screen, Context context){
         this.position = position;
 
-        this.background = BackgroundSkin.getSkin(context,screen);
+        this.background = SkinFactory.getBackgroundSkin(context, screen);
     }
 
     public void drawAt(Canvas canvas){

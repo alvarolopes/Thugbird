@@ -2,26 +2,22 @@ package dinamo.thugbird.elements;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-
 import java.util.Random;
-
-import dinamo.thugbird.R;
 import dinamo.thugbird.grafics.Screen;
 
 class Police extends Element{
 
-    private Bitmap skin;
     private final float speed;
     private final Screen screen;
+    private final Bitmap skin;
 
     public Police(int top, int left,Context context, Screen screen){
 
         super(top, left, 240, 120, screen);
         this.screen = screen;
         this.speed =  randomSpeed();
-        this.skin = PoliceSkin.getSkin(context,this);
+        skin = SkinFactory.getPoliceSkin(context, this);
     }
 
     public void drawAt(Canvas canvas) {
@@ -45,8 +41,5 @@ class Police extends Element{
         return left + getWidth() < 0;
     }
 
-    public void setSkin(Bitmap skin) {
-        this.skin = skin;
-    }
 
 }

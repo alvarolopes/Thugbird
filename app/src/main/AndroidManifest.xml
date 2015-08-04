@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".BirdColor"
+            android:name=".BirdColorActivity"
             android:label="@string/title_activity_bird_color"
             android:screenOrientation="portrait">
         </activity>

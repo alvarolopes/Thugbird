@@ -33,7 +33,7 @@ public class Bird extends Element{
 
         matrix = new Matrix();
 
-        this.skin = BirdSkin.getSkin(context, this, settings);
+        this.skin = SkinFactory.getBirdSkin(context, this, settings);
     }
 
     public void jump(float pressure) {

@@ -17,7 +17,7 @@ package dinamo.thugbird;
 
     import dinamo.thugbird.grafics.ColorAdjustment;
 
-public class BirdColor extends Activity {
+public class BirdColorActivity extends Activity {
 
     private ImageView imageResult;
     private SeekBar hueBar, satBar;
