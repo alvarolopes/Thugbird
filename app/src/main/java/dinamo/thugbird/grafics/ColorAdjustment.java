@@ -1,9 +1,16 @@
 package dinamo.thugbird.grafics;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 
+import java.util.ArrayList;
+
+import dinamo.thugbird.R;
+
 public class ColorAdjustment {
+
+
     public static Bitmap updateHSV(Bitmap src, float settingHue, float settingSat) {
 
         int w = src.getWidth();

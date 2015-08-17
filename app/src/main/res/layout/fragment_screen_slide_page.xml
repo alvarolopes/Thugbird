@@ -1,0 +1,23 @@
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    android:background="#20000000"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <ImageView
+            android:id="@+id/thugColor"
+            android:layout_width="145dp"
+            android:layout_height="130dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+
+            android:src="@drawable/game_bird"
+
+            android:scaleType="centerInside"
+            android:contentDescription="@string/pictureFrame" />
+
+</RelativeLayout>

@@ -135,7 +135,7 @@ public class Elements {
 
     public boolean hasBumpWith(Bird bird) {
         for (Police police : cops) {
-            if (police.hasCollision(bird, 1)) {
+            if (police.hasCollision(bird, 1, 10)) {
                 return true;
             }
         }
@@ -144,7 +144,7 @@ public class Elements {
 
     public boolean gotPrize(Bird bird) {
         for (Money prize : prizes) {
-            if (prize.hasCollision(bird, 0)) {
+            if (prize.hasCollision(bird, 0, 0)) {
                 prize.Get();
                 return true;
             }

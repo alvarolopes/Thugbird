@@ -29,8 +29,8 @@ abstract class Element {
 
     public int getHeight(){return height;}
 
-    public boolean hasCollision(Element obj2, int tolerance){
-        return (hasHorizontalCollision(obj2, tolerance) && hasVerticalCollision(obj2, tolerance));
+    public boolean hasCollision(Element obj2, int toleranceX, int toleranceY){
+        return (hasHorizontalCollision(obj2, toleranceX) && hasVerticalCollision(obj2, toleranceY));
     }
 
     public boolean hasHorizontalCollision(int top, int bottom){

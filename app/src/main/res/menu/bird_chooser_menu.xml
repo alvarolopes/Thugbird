@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+        <!-- Adds an item to the list. -->
+        <item android:id="@+id/action_previous"
+            android:title="@string/action_previous"
+            android:showAsAction="always" />
+        <item android:id="@+id/action_save"
+            android:title="@string/action_save"
+            android:showAsAction="always" />
+        <item android:id="@+id/action_next"
+            android:title="@string/action_next"
+            android:showAsAction="always"  />
+
+</menu>

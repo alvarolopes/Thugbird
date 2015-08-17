@@ -55,46 +55,66 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/paused"
-        android:id="@+id/txtPaused"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:shadowColor="#ff000000"
-        android:shadowDx="5"
-        android:shadowDy="5"
-        android:shadowRadius="5"
-        android:textColor="#ffffffff"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:visibility="invisible"/>
+
 
     <RelativeLayout
-        android:id="@+id/gameOver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/pause"
+        android:layout_width="320dp"
+        android:layout_height="220dp"
+        android:background="@drawable/game_panel"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:paddingTop="40dp"
         android:visibility="invisible">
 
         <TextView
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/paused"
+            android:id="@+id/txtPaused"
+            android:layout_gravity="center"
+            android:layout_alignParentTop="true"
+            android:textColor="#ee35190b"
+            android:textSize="55sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_start_game"
+            android:id="@+id/btnPlay"
+            android:layout_below="@+id/txtPaused"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/tryAgain" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/gameOver"
+        android:layout_width="320dp"
+        android:layout_height="220dp"
+        android:background="@drawable/game_panel"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="40dp"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/busted"
             android:id="@+id/txtGameOver"
-            android:shadowDy="5"
-            android:shadowDx="5"
-            android:shadowColor="#FF424141"
-            android:shadowRadius="5"
             android:layout_gravity="center"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#ff000000"
-            android:textSize="70sp"
+            android:textColor="#ee35190b"
+            android:textSize="55sp"
             android:textStyle="bold" />
 
         <Button

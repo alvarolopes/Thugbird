@@ -14,7 +14,7 @@ class Police extends Element{
 
     public Police(int top, int left,Context context, Screen screen){
 
-        super(top, left, 240, 120, screen);
+        super(top, left, 240, 108, screen);
         this.screen = screen;
         this.speed =  randomSpeed();
         skin = SkinFactory.getPoliceSkin(context, this);
@@ -40,6 +40,4 @@ class Police extends Element{
     public boolean isOutOfScreen() {
         return left + getWidth() < 0;
     }
-
-
 }

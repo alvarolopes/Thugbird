@@ -3,13 +3,10 @@ package dinamo.thugbird.elements;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
-
 import dinamo.thugbird.R;
 import dinamo.thugbird.engine.Sound;
-import dinamo.thugbird.grafics.ColorAdjustment;
 import dinamo.thugbird.grafics.Screen;
 
 public class Bird extends Element{
@@ -59,5 +56,40 @@ public class Bird extends Element{
 
 
         verticalSpeed += fallingConstant * deltaTime ;
+    }
+
+    public int getThugBirg(int thugNumber){
+
+        switch (thugNumber){
+            case 0:
+                return R.drawable.thug_zero;
+            case 1:
+                return R.drawable.thug_one;
+            case 2:
+                return R.drawable.thug_two;
+            case 3:
+                return R.drawable.thug_three;
+            case 4:
+                return R.drawable.thug_four;
+            default:
+                return R.drawable.thug_two;
+        }
+    }
+
+    public static String getThugName(int thugNumber) {
+        switch (thugNumber){
+            case 0:
+                return "Red";
+            case 1:
+                return "Blue";
+            case 2:
+                return "Brown";
+            case 3:
+                return "Green";
+            case 4:
+                return "Yellow";
+            default:
+                return "Brown";
+        }
     }
 }

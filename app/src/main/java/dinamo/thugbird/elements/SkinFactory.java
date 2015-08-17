@@ -65,26 +65,19 @@ public class SkinFactory {
     }
 
     public static Bitmap getBirdSkin(Context context, Bird bird, SharedPreferences settings) {
-        if(birdSkin == null) {
+        int thugNUmber = settings.getInt(context.getString(R.string.thugColor),2);
 
-            birdSkin = BitmapFactory.decodeResource(context.getResources(), R.drawable.game_bird);
+        if(birdSkin == null || thugNUmber != lastHueSat) {
 
-            float sat = settings.getFloat(context.getString(R.string.satKey), 256);
-            float hue = settings.getFloat(context.getString(R.string.hueKey), 256);
-            if (!(sat == 256 && hue == 256))
-                birdSkin = ColorAdjustment.updateHSV(birdSkin, hue, sat);
+            birdSkin = BitmapFactory.decodeResource(context.getResources(), bird.getThugBirg(thugNUmber));
 
             birdSkin = Bitmap.createScaledBitmap(birdSkin, bird.getWidth(), bird.getHeight(), false);
+
+            lastHueSat = thugNUmber;
 
             return birdSkin;
         }
 
-        float sat = settings.getFloat(context.getString(R.string.satKey), 256);
-        float hue = settings.getFloat(context.getString(R.string.hueKey), 256);
-        if ((sat+hue != lastHueSat ) &&!(sat == 256 && hue == 256)) {
-            birdSkin = ColorAdjustment.updateHSV(birdSkin, hue, sat);
-            lastHueSat = sat+hue;
-        }
         return birdSkin;
     }
 
